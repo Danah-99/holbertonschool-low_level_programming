@@ -33,6 +33,31 @@ int read_operands(int *a, int *b)
 }
 
 /**
+ * calculate - performs the chosen operation and prints the result
+ * @choice: the menu option (1 to 4)
+ * @a: the first number
+ * @b: the second number
+ *
+ * Return: void
+ */
+void calculate(int choice, int a, int b)
+{
+	if (choice == 1)
+		printf("Result: %d\n", a + b);
+	else if (choice == 2)
+		printf("Result: %d\n", a - b);
+	else if (choice == 3)
+		printf("Result: %d\n", a * b);
+	else if (choice == 4)
+	{
+		if (b == 0)
+			printf("Error: division by zero\n");
+		else
+			printf("Result: %g\n", (double)a / b);
+	}
+}
+
+/**
  * main - entry point of the simple calculator
  *
  * Return: Always 0
@@ -65,12 +90,7 @@ int main(void)
 		if (!read_operands(&a, &b))
 			return (0);
 
-		if (choice == 1)
-			printf("Result: %d\n", a + b);
-		if (choice == 2)
-			printf("Result: %d\n", a - b);
-		if (choice == 3)
-			printf("Result: %d\n", a * b);
+		calculate(choice, a, b);
 	}
 
 	return (0);
