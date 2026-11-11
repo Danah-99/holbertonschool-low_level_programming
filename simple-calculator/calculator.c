@@ -15,13 +15,31 @@ void print_menu(void)
 }
 
 /**
+ * read_operands - prompts for and reads two integers
+ * @a: pointer to store the first number
+ * @b: pointer to store the second number
+ *
+ * Return: 1 on success, 0 on failure
+ */
+int read_operands(int *a, int *b)
+{
+	printf("A: ");
+	if (scanf("%d", a) != 1)
+		return (0);
+	printf("B: ");
+	if (scanf("%d", b) != 1)
+		return (0);
+	return (1);
+}
+
+/**
  * main - entry point of the simple calculator
  *
  * Return: Always 0
  */
 int main(void)
 {
-	int choice;
+	int choice, a, b;
 
 	printf("Simple Calculator\n");
 	print_menu();
@@ -39,7 +57,16 @@ int main(void)
 		}
 
 		if (choice < 0 || choice > 4)
+		{
 			printf("Invalid choice\n");
+			continue;
+		}
+
+		if (!read_operands(&a, &b))
+			return (0);
+
+		if (choice == 1)
+			printf("Result: %d\n", a + b);
 	}
 
 	return (0);
