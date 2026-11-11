@@ -67,6 +67,10 @@ int main(void)
 
 		if (choice == 1)
 			printf("Result: %d\n", a + b);
+		if (choice == 2)
+			printf("Result: %d\n", a - b);
+		if (choice == 3)
+			printf("Result: %d\n", a * b);
 	}
 
 	return (0);
