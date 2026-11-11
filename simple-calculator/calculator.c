@@ -25,13 +25,22 @@ int main(void)
 
 	printf("Simple Calculator\n");
 	print_menu();
-	printf("Choice: ");
 
-	if (scanf("%d", &choice) != 1)
-		return (0);
+	while (1)
+	{
+		printf("Choice: ");
+		if (scanf("%d", &choice) != 1)
+			return (0);
 
-	if (choice == 0)
-		printf("Bye!\n");
+		if (choice == 0)
+		{
+			printf("Bye!\n");
+			break;
+		}
+
+		if (choice < 0 || choice > 4)
+			printf("Invalid choice\n");
+	}
 
 	return (0);
 }
